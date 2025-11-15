@@ -21,8 +21,17 @@ const Home = () => {
   const [mediaArray, setMediaArray] = useState([]);
   const getMedia = async () => {
     try {
-      const json = await fetchData('test.json');
-      setMediaArray(json);
+      const json = await fetchData(import.meta.env.VITE_MEDIA_API + '/media');
+      const newArray = await Promise.all(
+        json.map(async (item) => {
+          const result = await fetchData(
+            import.meta.env.VITE_AUTH_API + '/users/' + item.user_id
+          );
+          return {...item, username: result.username};
+        })
+      );
+      console.log(newArray);
+      setMediaArray(newArray);
     } catch (err) {
       console.error(err);
       alert('Failed!');
@@ -32,7 +41,7 @@ const Home = () => {
     getMedia();
   }, []);
 
-  console.log(mediaArray);
+  // console.log(mediaArray);
   return (
     <>
       <SingleView item={selectedItem} setSelectedItem={setSelectedItem} />
