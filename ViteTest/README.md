@@ -17,4 +17,4 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## Link to browser
 
-Open [HOOKS](https://users.metropolia.fi/~veijokas/hooks/) to view it in the browser.
+Open [CUSTOM HOOKS](https://users.metropolia.fi/~veijokas/custom-hooks/) to view it in the browser.
