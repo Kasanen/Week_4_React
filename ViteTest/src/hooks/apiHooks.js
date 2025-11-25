@@ -68,8 +68,7 @@ const useAuthentication = () => {
 };
 
 const useUser = () => {
-  const getUserByToken = async () => {
-    const token = localStorage.getItem('token');
+  const getUserByToken = async (token) => {
     if (!token) {
       throw new Error('No auth token available');
     }
