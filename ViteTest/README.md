@@ -17,4 +17,4 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## Link to browser
 
-Open [CONTEXT](https://users.metropolia.fi/~veijokas/context/) to view it in the browser.
+Open [UPLOAD](https://users.metropolia.fi/~veijokas/upload/) to view it in the browser.

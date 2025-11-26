@@ -1,6 +1,6 @@
 import {createContext, useState} from 'react';
 import {useAuthentication, useUser} from '../hooks/apiHooks';
-import {useLocation, useNavigate} from 'react-router';
+import {useNavigate} from 'react-router';
 
 const UserContext = createContext(null);
 
@@ -50,8 +50,6 @@ const UserProvider = ({children}) => {
       if (token) {
         const userResult = await getUserByToken(token);
         setUser(userResult.user);
-
-        console.log('location', location);
       }
     } catch (e) {
       console.log(e.message);
