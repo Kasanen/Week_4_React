@@ -38,7 +38,6 @@ const UserProvider = ({children}) => {
       localStorage.removeItem('token');
       setUser(null);
       navigate('/login');
-      window.location.reload();
     } catch (e) {
       console.log(e.message);
     }
@@ -46,10 +45,12 @@ const UserProvider = ({children}) => {
 
   const handleAutoLogin = async () => {
     try {
+      if (user) return;
       const token = localStorage.getItem('token');
       if (token) {
         const userResult = await getUserByToken(token);
-        setUser(userResult.user);
+        const u = userResult?.user ?? userResult;
+        setUser(u);
       }
     } catch (e) {
       console.log(e.message);

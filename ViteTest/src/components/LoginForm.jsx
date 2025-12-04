@@ -50,32 +50,53 @@ const LoginForm = () => {
 
   return (
     <>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="loginuser">Username</label>
-          <input
-            name="username"
-            type="text"
-            id="loginuser"
-            value={inputs.username}
-            onChange={handleInputChange}
-            autoComplete="username"
-          />
-        </div>
-        <div>
-          <label htmlFor="loginpassword">Password</label>
-          <input
-            name="password"
-            type="password"
-            id="loginpassword"
-            value={inputs.password}
-            onChange={handleInputChange}
-            autoComplete="current-password"
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      <div className="max-w-md mx-auto p-8">
+        <h1 className="text-2xl font-semibold mb-6 text-white">Login</h1>
+
+        <form
+          onSubmit={handleSubmit}
+          className="w-full bg-gray-800 p-6 rounded shadow-md text-white flex flex-col gap-4"
+        >
+          <div className="flex flex-col">
+            <label htmlFor="loginuser" className="text-sm mb-1">
+              Username
+            </label>
+            <input
+              name="username"
+              type="text"
+              id="loginuser"
+              value={inputs.username}
+              onChange={handleInputChange}
+              autoComplete="username"
+              className="p-2 rounded bg-gray-700 border border-gray-600 text-white"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="loginpassword" className="text-sm mb-1">
+              Password
+            </label>
+            <input
+              name="password"
+              type="password"
+              id="loginpassword"
+              value={inputs.password}
+              onChange={handleInputChange}
+              autoComplete="current-password"
+              className="p-2 rounded bg-gray-700 border border-gray-600 text-white"
+            />
+          </div>
+
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded text-white"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };
